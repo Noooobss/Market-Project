@@ -54,6 +54,19 @@ class MainWindowStyleConfig:
         """
     
 class SecondWindowStyleConfig:
+    def Image2_stylesheet(self):
+        return """
+    QPushButton {
+        background-color: transparent;
+        border: none;
+    }
+    QPushButton:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    QPushButton:pressed {
+        background-color: rgba(255, 255, 255, 1);
+    }
+    """
     def Return_to_menu(self):
         return """
             QPushButton {
@@ -89,6 +102,7 @@ class SecondWindowStyleConfig:
         "background-color: #829191;"
         "border-radius: 12px;"
         )
+    
     def Buttons_group(self):
         return (
         "background-color: #FFFFFF;"

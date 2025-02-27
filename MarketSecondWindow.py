@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget, QLineEdit, QLabel
-from PySide6.QtCore import Qt, QTimer
+from PySide6.QtCore import Qt, QTimer, QSize
 from PySide6.QtGui import QIcon, QFont, QPixmap, QPainter, QBrush, QColor
 from StyleSheets import SecondWindowStyleConfig
 from SharedModules import MainWindowInstance
@@ -8,7 +8,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Sistema de mercadorias")
-        self.setGeometry(100, 100, 1360, 620)
+        self.setGeometry(100, 100, 1360, 660)
         self.setWindowFlags(Qt.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
         QTimer.singleShot(0, self.update)
@@ -17,7 +17,20 @@ class MainWindow(QMainWindow):
         self.class_mainwindow_martket = self.class_mainwindow_instance.get_main_window()
         self.Create_widgets()
         self.Postion_widgets()
+
     def Create_widgets(self):
+        self.minimize_button = QPushButton(self)
+        self.minimize_button.setIcon(QIcon("Icons/window-minimize.png"))
+        self.minimize_button.setIconSize(QSize(25, 25))
+        self.minimize_button.setStyleSheet(self.style_config.Image2_stylesheet())
+        self.toggle_size = QPushButton(self)
+        self.toggle_size.setIcon(QIcon("Icons/window-restore"))
+        self.toggle_size.setIconSize(QSize(25, 25))
+        self.toggle_size.setStyleSheet(self.style_config.Image2_stylesheet())
+        self.close_window = QPushButton(self)
+        self.close_window.setIcon(QIcon("Icons/cross.png"))
+        self.close_window.setIconSize(QSize(25, 25))
+        self.close_window.setStyleSheet(self.style_config.Image2_stylesheet())
         self.background_widget = QWidget(self)
         self.background_widget.setStyleSheet(self.style_config.Background_widgets())
         self.return_button = QPushButton("Retornar ao\nmenu", self.background_widget)
@@ -52,21 +65,24 @@ class MainWindow(QMainWindow):
         self.search_products.setAlignment(Qt.AlignCenter)
 
     def Postion_widgets(self):
-        self.background_widget.setGeometry(15, 15, 1330, 100)
-        self.return_button.setGeometry(25, 17, 126, 60)
-        self.options_group.setGeometry(15, 140, 350, 455)
-        self.buttons_group.setGeometry(370, 140, 975, 455)
-        self.suppliers_button.setGeometry(68, 160, 140, 20)
-        self.circle1.setGeometry(36, 155, 25, 25)
-        self.propriety_rent.setGeometry(68, 202, 283, 20)
-        self.circle2.setGeometry(36, 199, 25, 25)
-        self.automatic_verification.setGeometry(68, 248, 283, 20)
-        self.circle3.setGeometry(36, 243, 25, 25)
-        self.products_list.setGeometry(68, 292, 175, 20)
-        self.circle4.setGeometry(36, 287, 25, 25)
-        self.add_product.setGeometry(420, 155, 150, 60)
-        self.remove_product.setGeometry(590, 155, 150, 60)
-        self.search_products.setGeometry(1070, 155, 250, 60)
+        self.minimize_button.setGeometry(1150, 1, 50, 50)
+        self.toggle_size.setGeometry(1215, 1, 50, 50)
+        self.close_window.setGeometry(1280, 1, 50, 50)
+        self.background_widget.setGeometry(15, 45, 1330, 100)
+        self.return_button.setGeometry(25, 17, 166, 60)
+        self.options_group.setGeometry(15, 170, 350, 455)
+        self.buttons_group.setGeometry(370, 170, 975, 455)
+        self.suppliers_button.setGeometry(68, 200, 140, 20)
+        self.circle1.setGeometry(36, 195, 25, 25)
+        self.propriety_rent.setGeometry(68, 242, 283, 20)
+        self.circle2.setGeometry(36, 239, 25, 25)
+        self.automatic_verification.setGeometry(68, 288, 283, 20)
+        self.circle3.setGeometry(36, 283, 25, 25)
+        self.products_list.setGeometry(68, 332, 175, 20)
+        self.circle4.setGeometry(36, 327, 25, 25)
+        self.add_product.setGeometry(420, 195, 150, 60)
+        self.remove_product.setGeometry(590, 195, 150, 60)
+        self.search_products.setGeometry(1070, 195, 250, 60)
         
     def paintEvent(self, event):
         painter = QPainter(self)

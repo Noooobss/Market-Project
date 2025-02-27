@@ -50,6 +50,10 @@ class MainWindow(QMainWindow):
         self.toggle_size.setIcon(QIcon("Icons/window-restore"))
         self.toggle_size.setIconSize(QSize(25, 25))
         self.toggle_size.setStyleSheet(self.style_config.Image_stylesheet())
+        self.close_window = QPushButton(self)
+        self.close_window.setIcon(QIcon("Icons/cross.png"))
+        self.close_window.setIconSize(QSize(25, 25))
+        self.close_window.setStyleSheet(self.style_config.Image_stylesheet())
         self.background_widget = QWidget(self)
         self.background_widget.setStyleSheet(self.style_config.Background_widgets())
         self.products_gestion = QPushButton("Gestão de\nprodutos", self.background_widget)
@@ -94,6 +98,8 @@ class MainWindow(QMainWindow):
         
     def Postion_widgets(self):
         self.minimize_button.setGeometry(1150, 1, 50, 50)
+        self.toggle_size.setGeometry(1215, 1, 50, 50)
+        self.close_window.setGeometry(1280, 1, 50, 50)
         self.background_widget.setGeometry(15, 45, 1330, 100)
         self.products_gestion.setGeometry(35, 27, 126, 46)
         self.clients_accounts.setGeometry(191, 27, 126, 46)
