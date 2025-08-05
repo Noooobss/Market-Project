@@ -16,8 +16,6 @@ class MainWindow(QMainWindow):
         self.style_config = MainWindowStyleConfig()
         self.Create_widgets()
         self.widgets_screen1 = [
-            self.minimize_button,
-            self.toggle_size,
             self.background_widget,
             self.products_gestion,
             self.clients_accounts,
@@ -42,18 +40,6 @@ class MainWindow(QMainWindow):
         self.Connect_functions()
 
     def Create_widgets(self):
-        self.minimize_button = QPushButton(self)
-        self.minimize_button.setIcon(QIcon("Icons/window-minimize.png"))
-        self.minimize_button.setIconSize(QSize(25, 25))
-        self.minimize_button.setStyleSheet(self.style_config.Image_stylesheet())
-        self.toggle_size = QPushButton(self)
-        self.toggle_size.setIcon(QIcon("Icons/window-restore"))
-        self.toggle_size.setIconSize(QSize(25, 25))
-        self.toggle_size.setStyleSheet(self.style_config.Image_stylesheet())
-        self.close_window = QPushButton(self)
-        self.close_window.setIcon(QIcon("Icons/cross.png"))
-        self.close_window.setIconSize(QSize(25, 25))
-        self.close_window.setStyleSheet(self.style_config.Image_stylesheet())
         self.background_widget = QWidget(self)
         self.background_widget.setStyleSheet(self.style_config.Background_widgets())
         self.products_gestion = QPushButton("Gestão de\nprodutos", self.background_widget)
@@ -97,9 +83,6 @@ class MainWindow(QMainWindow):
         self.label2_products.setStyleSheet(self.style_config.Second_labels_group())
         
     def Postion_widgets(self):
-        self.minimize_button.setGeometry(1150, 1, 50, 50)
-        self.toggle_size.setGeometry(1215, 1, 50, 50)
-        self.close_window.setGeometry(1280, 1, 50, 50)
         self.background_widget.setGeometry(15, 45, 1330, 100)
         self.products_gestion.setGeometry(35, 27, 126, 46)
         self.clients_accounts.setGeometry(191, 27, 126, 46)

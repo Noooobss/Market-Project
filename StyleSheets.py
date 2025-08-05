@@ -13,8 +13,10 @@ class MainWindowStyleConfig:
         QPushButton:hover {
         background-color: #3B4A4F;
         }
+        QPushButton:pressed {
+        background-color : #43565c
+        }
     """
-    
     def Groups_stylesheet(self):
         return (
         "background-color: #949B96;"
@@ -35,9 +37,18 @@ class MainWindowStyleConfig:
         )
     
     def Image_stylesheet(self):
-        return (
-        "background-color: transparent;"
-        )
+        return """
+    QPushButton {
+        background-color: transparent;
+        border: none;
+    }
+    QPushButton:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    QPushButton:pressed {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    """
     def Header(self):
         return (
         "background-color: #FFFFFF;"
@@ -64,20 +75,23 @@ class SecondWindowStyleConfig:
         background-color: rgba(255, 255, 255, 0.1);
     }
     QPushButton:pressed {
-        background-color: rgba(255, 255, 255, 1);
+        background-color: rgba(255, 255, 255, 0.2);
     }
     """
     def Return_to_menu(self):
         return """
-            QPushButton {
-            background-color: #4C5B61;
-            font: bold 16px 'Arial';
-            border-radius: 12px;
-            color: #FFFFFF;
-            }
-            QPushButton:hover {
-            background-color: #3B4A4F;
-            }
+        QPushButton {
+        background-color: #4C5B61;
+        font: bold 16px 'Arial';
+        border-radius: 12px;
+        color: #FFFFFF;
+        }
+        QPushButton:hover {
+        background-color: #3B4A4F;
+        }
+        QPushButton:pressed {
+        background-color : #43565c
+        }
         """
     def Options_group(self):
         return (
@@ -96,13 +110,15 @@ class SecondWindowStyleConfig:
         QPushButton:hover {
         color: #014f4f;
         }
+        QPushButton:pressed {
+        color : #046363
+        }
         """
     def Background_widgets(self):
         return (
         "background-color: #829191;"
         "border-radius: 12px;"
         )
-    
     def Buttons_group(self):
         return (
         "background-color: #FFFFFF;"
@@ -123,6 +139,9 @@ class SecondWindowStyleConfig:
         }
         QPushButton:hover {
         background-color: #3B4A4F;
+        }
+        QPushButton:pressed {
+        background-color : #43565c
         }
         """
     def Search_products(self):
